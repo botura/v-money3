@@ -1,6 +1,7 @@
 import defaults from './options'
 
 function format(input, opt = defaults) {
+  if (input == null) return null
 
   if (opt.allowBlank && isNormalInteger(input)) {
     input = numbersToCurrency(input, fixed(opt.precision))
@@ -46,6 +47,8 @@ function format(input, opt = defaults) {
 }
 
 function unformat(input, opt = defaults) {
+  if (input == null) return null
+  
   const negative = (!opt.disableNegative) ? (input.indexOf('-') >= 0 ? -1 : 1) : 1;
   const filtered = input.replace(opt.prefix, '').replace(opt.suffix, '')
   const numbers = onlyNumbers(filtered)

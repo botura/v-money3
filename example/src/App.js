@@ -20,7 +20,16 @@ export default {
             }
         };
     },
-    template: `
+
+  methods: {
+    atClick() {
+      // console.log(this.componentAmount);
+      this.componentAmount = null;
+      // console.log(this.componentAmount);
+    },
+  },
+
+  template: `
       <div>
       <section class="hero is-small is-success">
         <div class="hero-body">
@@ -34,6 +43,10 @@ export default {
 <!--          <figure class="image is-128x128">-->
 <!--            <img class="is-rounded" src="https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif" alt="v-money3"/>-->
 <!--          </figure>-->
+        <br>
+        <button @click="atClick">Reset</button>
+        <br>
+        {{ componentAmount }}, {{ typeof(componentAmount) }}
         </div>
       </section>
       <section class="section">
@@ -179,5 +192,5 @@ export default {
         </div>
       </section>
       </div>
-  `
+  `,
 };
